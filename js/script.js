@@ -17,7 +17,7 @@ loginBtn.addEventListener("click", function () {
     setTimeout(() => {
       console.log("after 2 seconds");
       loginStatus.classList.add("display-none");
-      homeSection.classList.remove("hidden");
+      homeSection.classList.remove("display-none");
     }, 2000);
 
     loginStatus.classList.remove("display-none");
