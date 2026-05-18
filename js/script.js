@@ -1,32 +1,32 @@
-// const loginBtn = document.getElementById("login-btn");
-// const loginPageSection = document.getElementById("login-page-section");
-// const homeSection = document.getElementById("home-section");
-// const loginStatus = document.getElementById("status");
-// loginStatus.classList.add("display-none");
-// loginBtn.addEventListener("click", function () {
-//   const mobileNumberField = document.getElementById("mobile-number");
-//   const passwordField = document.getElementById("password");
+const loginBtn = document.getElementById("login-btn");
+const loginPageSection = document.getElementById("login-page-section");
+const homeSection = document.getElementById("home-section");
+const loginStatus = document.getElementById("status");
+loginStatus.classList.add("display-none");
+loginBtn.addEventListener("click", function () {
+  const mobileNumberField = document.getElementById("mobile-number");
+  const passwordField = document.getElementById("password");
 
-//   if (
-//     mobileNumberField.value.length === 10 &&
-//     passwordField.value.length === 4
-//   ) {
-//     console.log("password match");
+  if (
+    mobileNumberField.value.length === 10 &&
+    passwordField.value.length === 4
+  ) {
+    console.log("password match");
 
-//     loginPageSection.classList.add("display-none");
-//     setTimeout(() => {
-//       console.log("after 2 seconds");
-//       loginStatus.classList.add("display-none");
-//       homeSection.classList.remove("display-none");
-//     }, 2000);
+    loginPageSection.classList.add("display-none");
+    setTimeout(() => {
+      console.log("after 2 seconds");
+      loginStatus.classList.add("display-none");
+      homeSection.classList.remove("display-none");
+    }, 2000);
 
-//     loginStatus.classList.remove("display-none");
-//   } else {
-//     console.log("not match");
-//   }
-//   mobileNumberField.value = "";
-//   passwordField.value = "";
-// });
+    loginStatus.classList.remove("display-none");
+  } else {
+    console.log("not match");
+  }
+  mobileNumberField.value = "";
+  passwordField.value = "";
+});
 // ************ Current Balance *****************
 const currentBalance = document.getElementById("current-balance");
 
@@ -103,6 +103,10 @@ addMoneyFeature.addEventListener("click", function () {
         const updatedCurrentMoney = currentBalanceNumber + addNewMoney;
         currentBalance.innerText = updatedCurrentMoney;
       }
+      bankNameField.value = "";
+      addMoneyAcountNumberField.value = "";
+      addMoneyAmountField.value = "";
+      addMoneyPinNumberField.value = "";
     });
 });
 
@@ -120,6 +124,29 @@ cashOutFeature.addEventListener("click", function () {
   bonusParent.classList.add("display-none");
   payBillParent.classList.add("display-none");
   cashOutParent.classList.remove("display-none");
+
+  document
+    .getElementById("withdraw-money-btn")
+    .addEventListener("click", function () {
+      const withdrawAgentNumberField = document.getElementById(
+        "withdraw-agent-number",
+      );
+      const withdrawAmountField = document.getElementById("withdraw-amount");
+      const withdrawPinNumberField = document.getElementById("withdraw-pin");
+      if (
+        parseInt(withdrawAgentNumberField.value.length) === 11 &&
+        parseInt(withdrawAmountField.value) > 0 &&
+        parseInt(withdrawPinNumberField.value) === pinNumber
+      ) {
+        const currentBalanceNumber = parseInt(currentBalance.innerText);
+        const amountToBeDecrease = parseInt(withdrawAmountField.value);
+        const updatedCurrentMoney = currentBalanceNumber - amountToBeDecrease;
+        currentBalance.innerText = updatedCurrentMoney;
+      }
+      withdrawAgentNumberField.value = "";
+      withdrawAmountField.value = "";
+      withdrawPinNumberField.value = "";
+    });
 });
 
 transferMoneyFeature.addEventListener("click", function () {
@@ -134,6 +161,29 @@ transferMoneyFeature.addEventListener("click", function () {
   bonusParent.classList.add("display-none");
   payBillParent.classList.add("display-none");
   transferMoneyParent.classList.remove("display-none");
+
+  document
+    .getElementById("transfer-money-btn")
+    .addEventListener("click", function () {
+      const transferAccountNumber = document.getElementById(
+        "transfer-account-number",
+      );
+      const transferAmount = document.getElementById("transfer-amount");
+      const transferPinNumber = document.getElementById("transfer-pin");
+      if (
+        parseInt(transferAccountNumber.value.length) === 11 &&
+        parseInt(transferAmount.value) > 0 &&
+        parseInt(transferPinNumber.value) === pinNumber
+      ) {
+        const currentBalanceNumber = parseInt(currentBalance.innerText);
+        const amountToBeDecrease = parseInt(transferAmount.value);
+        const updatedCurrentMoney = currentBalanceNumber - amountToBeDecrease;
+        currentBalance.innerText = updatedCurrentMoney;
+      }
+      transferAccountNumber.value = "";
+      transferAmount.value = "";
+      transferPinNumber.value = "";
+    });
 });
 
 bonusFeature.addEventListener("click", function () {
@@ -149,6 +199,17 @@ bonusFeature.addEventListener("click", function () {
   transferMoneyParent.classList.add("display-none");
   payBillParent.classList.add("display-none");
   bonusParent.classList.remove("display-none");
+
+  document.getElementById("bonus-btn").addEventListener("click", function () {
+    const bonusCoupon = document.getElementById("bonus-coupon");
+    const coupon = "Eid2026";
+    if (bonusCoupon.value === coupon) {
+      const currentBalanceNumber = parseInt(currentBalance.innerText);
+      const updatedCurrentMoney = currentBalanceNumber + 1000;
+      currentBalance.innerText = updatedCurrentMoney;
+    }
+    bonusCoupon.value = "";
+  });
 });
 
 payBillFeature.addEventListener("click", function () {
@@ -164,6 +225,38 @@ payBillFeature.addEventListener("click", function () {
   transferMoneyParent.classList.add("display-none");
   bonusParent.classList.add("display-none");
   payBillParent.classList.remove("display-none");
+
+  document
+    .getElementById("pay-bill-btn")
+    .addEventListener("click", function () {
+      const bankNameLists = ["Islami Bank", "Jonota Bank", "Bikash", "Nogod"];
+      const bankNameField = document.getElementById("pay-bill-bank-names");
+      const billerAcountNumberField = document.getElementById(
+        "biller-acount-number",
+      );
+      const totalBillAmount = document.getElementById("total-bill-amount");
+      const billPinNumber = document.getElementById("bill-pin-number");
+      // console.log(billerAcountNumberField.value.length);
+      // console.log(typeof parseInt(billerAcountNumberField.value));
+      if (
+        bankNameLists.includes(bankNameField.value) &&
+        parseInt(billerAcountNumberField.value.length) === 11 &&
+        parseInt(totalBillAmount.value) > 0 &&
+        parseInt(billPinNumber.value) === pinNumber
+      ) {
+        const currentBalanceNumber = parseInt(currentBalance.innerText);
+        const addNewMoney = parseInt(totalBillAmount.value);
+        const updatedCurrentMoney = currentBalanceNumber - addNewMoney;
+        currentBalance.innerText = updatedCurrentMoney;
+        console.log("working");
+      } else {
+        console.log("not working");
+      }
+      bankNameField.value = "";
+      billerAcountNumberField.value = "";
+      totalBillAmount.value = "";
+      billPinNumber.value = "";
+    });
 });
 
 transactionFeature.addEventListener("click", function () {

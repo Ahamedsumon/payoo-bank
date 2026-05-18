@@ -22,36 +22,36 @@
   <header></header>
   <main class="max-w-6xl mx-auto bg-gray-100">
     <!-- login page section -->
-    <!-- <section id="login-page-section" class="outfit-font flex justify-center min-h-screen">
-            <div class="flex flex-col justify-center">
-                <div class="relative -z-10">
-                    <img class="absolute -top-40 left-10" src="./assets/bg.png" alt="bac=">
-                    <img class="absolute -top-30 right-40" src="./assets/Group.png" alt="">
-                </div>
-                <div class="bg-white shadow border border-gray-200 rounded-xl p-5 w-100">
-                    <form class="flex flex-col gap-3">
-                        <p class="text-base font-medium">Mobile Number</p>
-                        <input class=" p-2 rounded-full bg-gray-200" type="text" name="" id="mobile-number"
-                            placeholder="Enter your number">
-                        <p class="text-base font-medium">4 Digit Pin</p>
-                        <input class=" p-2 rounded-full bg-gray-200" type="text" name="" id="password"
-                            placeholder="Enter 4 Digit Pin">
-                        <br>
-                        <input id="login-btn" class="cursor-pointer w-full rounded-full p-2 bg-blue-600 text-white "
-                            type="button" value="Login">
-                    </form>
-                </div>
-            </div>
-        </section> -->
+    <section id="login-page-section" class="outfit-font flex justify-center min-h-screen">
+      <div class="flex flex-col justify-center">
+        <div class="relative -z-10">
+          <img class="absolute -top-40 left-10" src="./assets/bg.png" alt="bac=">
+          <img class="absolute -top-30 right-40" src="./assets/Group.png" alt="">
+        </div>
+        <div class="bg-white shadow border border-gray-200 rounded-xl p-5 w-100">
+          <form class="flex flex-col gap-3">
+            <p class="text-base font-medium">Mobile Number</p>
+            <input class=" p-2 rounded-full bg-gray-200" type="text" name="" id="mobile-number"
+              placeholder="Enter your number">
+            <p class="text-base font-medium">4 Digit Pin</p>
+            <input class=" p-2 rounded-full bg-gray-200" type="text" name="" id="password"
+              placeholder="Enter 4 Digit Pin">
+            <br>
+            <input id="login-btn" class="cursor-pointer w-full rounded-full p-2 bg-blue-600 text-white " type="button"
+              value="Login">
+          </form>
+        </div>
+      </div>
+    </section>
     <!-- Home page -->
-    <!-- <section id="status" class="flex min-h-screen justify-center items-center  outfit-font ">
-            <div class="text-center">
-                <p class="text-3xl text-center ">Successfully loged In</p>
-                <p class="text-sm text-gray-500">you are being redirected to main page</p>
-            </div>
+    <section id="status" class="flex min-h-screen justify-center items-center  outfit-font display-none">
+      <div class="text-center">
+        <p class="text-3xl text-center ">Successfully loged In</p>
+        <p class="text-sm text-gray-500">you are being redirected to main page</p>
+      </div>
 
-        </section> -->
-    <section id="home-section" class="bg-[#F4F5F7] outfit-font">
+    </section>
+    <section id="home-section" class="bg-[#F4F5F7] outfit-font display-none">
       <div class="flex justify-between items-center border-b border-gray-100 py-2 bg-white">
         <div class="flex items-center ml-3">
           <img src="./assets/Group.png" alt="" />
@@ -216,12 +216,16 @@
       <div class="flex flex-col gap-3 my-5 shadow-md bg-white rounded-lg p-4">
 
         <p class="font-bold">Agent Number</p>
-        <input class="p-2 rounded-full bg-gray-200" type="text" name="" id="" placeholder="Enter 11 digit number">
+        <input class="p-2 rounded-full bg-gray-200" type="text" name="" id="withdraw-agent-number"
+          placeholder="Enter 11 digit number">
         <p class="font-bold">Amount</p>
-        <input class="p-2 rounded-full bg-gray-200" type="number" name="" id="" placeholder="Enter Amount to Withdraw">
+        <input class="p-2 rounded-full bg-gray-200" type="number" name="" id="withdraw-amount"
+          placeholder="Enter Amount to Withdraw">
         <p class="font-bold">Pin Number</p>
-        <input class="p-2 rounded-full bg-gray-200" type="number" placeholder="Enter 4 digit pin number">
-        <input class="py-2 rounded-full bg-blue-600 text-white" type="button" value="Withdraw Money" name="" id="">
+        <input class="p-2 rounded-full bg-gray-200" type="number" id="withdraw-pin"
+          placeholder="Enter 4 digit pin number">
+        <input class="py-2 rounded-full bg-blue-600 text-white" type="button" value="Withdraw Money" name=""
+          id="withdraw-money-btn">
       </div>
     </section>
     <!-- Transfer Money proces section -->
@@ -230,12 +234,16 @@
       <div class="flex flex-col gap-3 my-5 shadow-md bg-white rounded-lg p-4">
 
         <p class="font-bold">User Account Number</p>
-        <input class="p-2 rounded-full bg-gray-200" type="text" name="" id="" placeholder="Enter 11 digit number">
+        <input class="p-2 rounded-full bg-gray-200" type="text" name="" id="transfer-account-number"
+          placeholder="Enter 11 digit number">
         <p class="font-bold">Amount</p>
-        <input class="p-2 rounded-full bg-gray-200" type="number" name="" id="" placeholder="Enter amount to transfer">
+        <input class="p-2 rounded-full bg-gray-200" type="number" name="" id="transfer-amount"
+          placeholder="Enter amount to transfer">
         <p class="font-bold">Pin Number</p>
-        <input class="p-2 rounded-full bg-gray-200" type="number" placeholder="Enter 4 digit pin number">
-        <input class="py-2 rounded-full bg-blue-600 text-white" type="button" value="Send Now" name="" id="">
+        <input class="p-2 rounded-full bg-gray-200" type="number" id="transfer-pin"
+          placeholder="Enter 4 digit pin number">
+        <input class="py-2 rounded-full bg-blue-600 text-white" type="button" value="Send Now" name=""
+          id="transfer-money-btn">
       </div>
     </section>
     <!-- Get Bonus proces section -->
@@ -244,9 +252,10 @@
       <div class="flex flex-col gap-3 my-5 shadow-md bg-white rounded-lg p-4">
 
         <p class="font-bold">Enter Bonus Coupon</p>
-        <input class="p-2 rounded-full bg-gray-200" type="text" name="" id="" placeholder="Enter your coupon">
+        <input class="p-2 rounded-full bg-gray-200" type="text" name="" id="bonus-coupon"
+          placeholder="Enter your coupon">
 
-        <input class="py-2 rounded-full bg-blue-600 text-white" type="button" value="Get Bonus" name="" id="">
+        <input class="py-2 rounded-full bg-blue-600 text-white" type="button" value="Get Bonus" name="" id="bonus-btn">
       </div>
     </section>
     <!-- Pay Bill proces section -->
@@ -254,7 +263,7 @@
       <p class="text-2xl font-bold my-5">Pay Bill</p>
       <div class="flex flex-col gap-3 my-5 shadow-md bg-white rounded-lg p-4">
         <p class="font-bold">Select To Pay</p>
-        <input class="p-2 rounded-full bg-gray-200" list="bank-list" id="banks" name="banks"
+        <input class="p-2 rounded-full bg-gray-200" list="bank-list" id="pay-bill-bank-names" name="banks"
           placeholder="Select Bank" />
 
         <datalist id="bank-list">
@@ -264,12 +273,16 @@
           <option value="Nogod"></option>
         </datalist>
         <p class="font-bold">Biller Account Number</p>
-        <input class="p-2 rounded-full bg-gray-200" type="text" name="" id="" placeholder="Enter account number">
+        <input class="p-2 rounded-full bg-gray-200" type="text" name="" id="biller-acount-number"
+          placeholder="Enter account number">
         <p class="font-bold">Amount to Pay</p>
-        <input class="p-2 rounded-full bg-gray-200" type="number" name="" id="" placeholder="Add Amount to pay">
+        <input class="p-2 rounded-full bg-gray-200" type="number" name="" id="total-bill-amount"
+          placeholder="Add Amount to pay">
         <p class="font-bold">Pin Number</p>
-        <input class="p-2 rounded-full bg-gray-200" type="number" placeholder="Enter 4 digit pin number">
-        <input class="py-2 rounded-full bg-blue-600 text-white" type="button" value="Add Money" name="" id="">
+        <input class="p-2 rounded-full bg-gray-200" type="number" id="bill-pin-number"
+          placeholder="Enter 4 digit pin number">
+        <input class="py-2 rounded-full bg-blue-600 text-white" type="button" value="Pay Bill" name=""
+          id="pay-bill-btn">
       </div>
     </section>
   </main>
